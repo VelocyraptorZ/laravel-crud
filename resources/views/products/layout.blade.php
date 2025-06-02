@@ -7,9 +7,9 @@
         <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css">
     </head>
     <body>
-        <h1>Laravel 11 CRUD Application</h1>
+        
         <div class="container">
-            <br>
+            <h1 style="pb-1">Product Table</h1>
             @yield('content')
         </div>
     </body>

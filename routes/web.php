@@ -19,12 +19,12 @@ use App\Models\Product;
 
 // Define a route for the homepage
 Route::get('/', function () {
-    
-    // Retrieve the latest products and paginate them
-    $products = Product::latest()->paginate(5); // The 'paginate' method paginates the results
+    return view('welcome');
+    // // Retrieve the latest products and paginate them
+    // $products = Product::latest()->paginate(5); // The 'paginate' method paginates the results
 
-    // Return the 'products.index' view with the products and the current page
-    return view('products.index', compact('products'))->with(request()->input('page')); // The 'compact' function creates an array from the variables passed to it
+    // // Return the 'products.index' view with the products and the current page
+    // return view('products.index', compact('products'))->with(request()->input('page')); // The 'compact' function creates an array from the variables passed to it
     
 });
 

@@ -35,11 +35,19 @@ class ProductController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+        
+        $image_product = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $image_product);
 
         //create a new product in database
-        Product::create($request->all());
+        Product::create([
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'image' => $image_product,
+        ]);
         
         //redirect the user and show a message
         return redirect()->route('products.index')

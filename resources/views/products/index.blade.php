@@ -36,6 +36,13 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
             <td>
+                @if ($product->image)
+                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" style="width: 100px; height: auto;">
+                @else
+                    No Image
+                @endif
+            </td>
+            <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
